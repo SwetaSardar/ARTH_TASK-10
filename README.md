@@ -1,2 +1,7 @@
-# ARTH_TASK-10
-## 🔰 "You have to write a blog/Article on any Blogging site (Eg LinkedIn,Medium) that how big MNC's like Google, Facebook, Instagram etc stores, manages and manipulate Thousands of Terabytes of data with High Speed and High Efficiency." 🔰
+# ARTH_TASK-10 
+## 🔰 " Write an Ansible PlayBook that does the following operations in the managed nodes:
+# 🔹 Configure Docker
+# 🔹 Start and enable Docker services
+# 🔹 Pull the httpd server image from the Docker Hub
+# 🔹 Run the docker container and expose it to the public
+# 🔹 Copy the html code in /var/www/html directory and start the web server " 🔰
