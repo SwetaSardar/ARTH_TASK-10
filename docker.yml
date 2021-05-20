@@ -1,0 +1,51 @@
+- hosts: Docker
+  tasks:
+          - name: "Configuring a docker repo"
+            yum_repository:
+                    name: "Docker" 
+                    description: "repo of docker"
+                    baseurl: "https://download.docker.com/linux/centos/7/x86_64/stable/"
+                    gpgcheck: no
+
+          - name: "Install the docker software"
+            shell: "yum install docker-ce --nobest -y"
+
+          - name: "Start the service of docker"
+            service:
+                    name: "docker"
+                    state: started
+                    enabled: yes
+
+          - name: "Install python"
+            package:
+                    name: "python36"
+                    state: "present"
+          
+          - name: "Install docker SDK"
+            command: "pip3 install docker"
+
+
+          - name: "Pull the docker image"
+            docker_image:
+                    name: "httpd"
+                    tag: latest
+                    source: pull
+
+          - name: "Copy the HTML code"
+            copy:
+                    src: "index.html"
+                    dest: "/var/www/html/"
+
+          - name: "Create and run  docker container and expose it to the  publicly"
+            docker_container:
+                    name: "webserver"
+                    image: "httpd:latest"
+                    state: present
+                    exposed_ports: "80"
+                    ports: "8080:80"
+                    volumes: "/var/www/html:/usr/local/apache2/htdocs/"
+          
+          - name: "Start the docker container"
+            docker_container:
+                    name: "webserver" 
+                    state: started 
