@@ -1,5 +1,5 @@
-# ARTH_TASK-10 
-## 🔰 " Write an Ansible PlayBook that does the following operations in the managed nodes:
+## ARTH_TASK-10 
+# 🔰 " Write an Ansible PlayBook that does the following operations in the managed nodes:
 # 🔹 Configure Docker
 # 🔹 Start and enable Docker services
 # 🔹 Pull the httpd server image from the Docker Hub
